@@ -3,7 +3,8 @@
 
 - 可以在mainactivity中填入唯一的userid并按下下方按钮来指定设备发送消息。
 - leancloud发送消息选择JSON格式。
-#### 格式要求：
+
+- 格式要求：
 ```
 {
   "alert": {
