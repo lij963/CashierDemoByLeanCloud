@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_left"
+    android:layout_width="200dp"
+    android:layout_height="match_parent"
+
+    android:background="#ffffff"
+    android:layoutDirection="ltr"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/title_text_size"
+        android:text="尊敬的顾客"
+        android:textColor="@color/black"
+        style="@style/cashier_item_style"/>
+
+    <TextView
+        android:textSize="@dimen/title_text_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/cashier_item_style"
+        android:text="下午好"
+        android:textColor="@color/colorTextPink"
+        android:textStyle="bold" />
+
+    <TextView
+
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorTextPink"
+        android:gravity="bottom"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:text="欢迎光临"
+        android:textColor="@color/white"
+        android:textSize="@dimen/title_text_size"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        style="@style/cashier_item_style">
+
+        <TextView android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/content_text_size"
+            android:text="结账单号：" />
+
+        <TextView android:textColor="@color/black"
+            android:id="@+id/tv_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/content_text_size"
+            android:text="123123123123" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/cashier_item_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:textSize="@dimen/content_text_size"
+            android:layout_height="wrap_content"
+            android:text="商品：" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+
+        <TextView android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="@dimen/content_text_size"
+            android:text="价格" />
+    </LinearLayout>
+
+    <View
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/cashier_list_pink_line_height"
+        android:background="@color/colorTextPink" />
+
+    <ScrollView
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_goods"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cashier_list_pink_line_height"
+                android:background="@color/colorTextPink" />
+
+            <LinearLayout
+                style="@style/cashier_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/content_text_size"
+                    android:layout_height="wrap_content"
+                    android:text="合计" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+
+                <TextView android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="@dimen/content_text_size"
+                    android:id="@+id/tv_total_price"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/cashier_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/content_text_size"
+                    android:layout_height="wrap_content"
+                    android:text="实付" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+
+                <TextView android:textColor="@color/black"
+                    android:id="@+id/tv_payed_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center" android:textSize="@dimen/content_text_size"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/cashier_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/content_text_size"
+                    android:layout_height="wrap_content"
+                    android:text="找零" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+
+                <TextView android:textColor="@color/black"
+                    android:textSize="@dimen/content_text_size"
+                    android:id="@+id/tv_change_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="" />
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/cashier_list_pink_line_height"
+                android:background="@color/colorTextPink" />
+
+            <LinearLayout
+                style="@style/cashier_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/content_text_size"
+                    android:layout_height="wrap_content"
+                    android:text="收银员：" />
+
+
+                <TextView android:textColor="@color/black"
+                    android:textSize="@dimen/content_text_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:id="@+id/tv_cashier_name"
+                    android:text="(*^__^*) 嘻嘻……" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/cashier_item_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textSize="@dimen/content_text_size" android:textColor="@color/black"
+                    android:layout_height="wrap_content"
+                    android:text="工号：" />
+
+
+                <TextView android:textColor="@color/black"
+                    android:textSize="@dimen/content_text_size"
+                    android:id="@+id/tv_cashier_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="9527" />
+            </LinearLayout>
+
+            <View
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/colorTextLightPink" />
+
+            <ImageView
+                style="@style/cashier_item_style"
+                android:layout_width="80dp"
+                android:id="@+id/iv_qr_code"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:src="@mipmap/default_qr_code" />
+
+            <TextView style="@style/cashier_item_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="@dimen/content_text_size_large"
+                android:text="扫一扫，关注我们" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

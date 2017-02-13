@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:orientation="horizontal"
+    tools:context="com.etam.cashier.activity.BaseCashierActivity">
+
+    <LinearLayout
+        android:id="@+id/ll_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="right|top"
+        android:layoutDirection="ltr"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_right"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.etam.cashier.view.CustomMediaPlayer
+                android:id="@+id/player"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+           <include layout="@layout/cashier_vip_code_layout"/>
+            <include layout="@layout/cashier_qr_code_layout"/>
+        </RelativeLayout>
+
+        <include layout="@layout/cashier_bottom_layout"/>
+    </LinearLayout>
+
+    <include layout="@layout/cashier_left_menu"/>
+</LinearLayout>

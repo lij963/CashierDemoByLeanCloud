@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.5.1/bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc/butterknife-annotations-8.5.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="bb67dad90bab7cd77a8f7f1b8442b47e3a2326bc">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/butterknife-annotations-8.5.1_439a5d2ebbd5cac5955d23e39b81eb8e8a623975.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.21/139535a69a4239db087de9bab0bee568bf8e0b70/slf4j-api-1.7.21.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="139535a69a4239db087de9bab0bee568bf8e0b70">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/slf4j-api-1.7.21_1bd8af4dcc9e07521fa7fbf4472a12d1e59c3281.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.0/support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.0_df4b00bd5cec0cc1441af1dd1f325f0dbf54e046.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-statistics/v3.15.9/a7ad7c27eecd2631d32c83e0d5ad3e3828a80ee/avoscloud-statistics-v3.15.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0a7ad7c27eecd2631d32c83e0d5ad3e3828a80ee">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/avoscloud-statistics-v3.15.9_cfaa835bd1faa8ad07a9ac301ec67b6ea1890e48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/fastjson/1.1.39-leancloud/94d4ebd4acdaf01d7445435382eea2d2d38e7534/fastjson-1.1.39-leancloud.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94d4ebd4acdaf01d7445435382eea2d2d38e7534">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/fastjson-1.1.39-leancloud_e5534f158c447c88708dc715d6e244cb3c2f9058.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/cn.leancloud.android/avoscloud-push/v3.15.9/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="a6810d0d892421adb5744319f6115d5dcbcc2480">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/cn.leancloud.android-avoscloud-push-v3.15.9_4b355df66bf7b45aeb2e98c6fc4ea5d376d578ad.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/okio-1.9.0_394b119fa9937e0fa841f0319ec98f3878d3b3cf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-android/1.7.21/f4f6a07c00f3996d8db58c85a3d73377b40611eb/slf4j-android-1.7.21.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f4f6a07c00f3996d8db58c85a3d73377b40611eb">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/slf4j-android-1.7.21_9072158905bc8f791f9294f58b9a03290fc562e1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/com.google.zxing/core/3.2.1/2287494d4f5f9f3a9a2bb6980e3f32053721b315/core-3.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="2287494d4f5f9f3a9a2bb6980e3f32053721b315">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/core-3.2.1_3d7ed5fc532b72e836980622b1a7fc9a2182355a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-exo/0.7.7/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="436878bdeb1472361930a305a54d1ee6e96e4afe">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-exo-0.7.7_5977ba5fbfa90407ee98f0f62903c14e707a4a81.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-24.2.1_aabdad62b62c1002d8b24c7f03083d37b9d8c5ec.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.0_4a700b9ad60056df7b6b6133ca24c0f185204ef0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.github.CarGuo/GSYVideoPlayer/v1.5.9/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e4189c0f33e6202462c12595bb58175366278bce">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.github.CarGuo-GSYVideoPlayer-v1.5.9_511bd128dc949973f6c898426c6f8aca46370bb8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.2.1_4af9a3987cdb5d3d89b9c6c390b587acd3393c33.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.andkulikov/transitionseverywhere/1.7.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="24a746ed49aea913f5f009715c49e01a8d758e3f">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.andkulikov-transitionseverywhere-1.7.0_6eb14cf25ddfcde6aaf89482569d9dcd69aa4fb1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_9531bd553dd5ec27d26bea7d753ef97c6991578b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.5.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="19f281a785ca0eb5f6799fc7bf7ca199a9ca1e8b">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.jakewharton-butterknife-8.5.1_dac20a4a89a6ddbb765e02a2bb9b50256120b98b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/Java-WebSocket/1.3.2-leancloud/169fd461930335df8099bcbac99c0f206912ced1/Java-WebSocket-1.3.2-leancloud.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="169fd461930335df8099bcbac99c0f206912ced1">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/Java-WebSocket-1.3.2-leancloud_71d794cb4d72577ad3d1f481183a598795ebbad1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-24.2.1_674360bda824489566c713ed08cd3fb01397252a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Applications/Android Studio.app/Contents/gradle/m2repository/com/google/protobuf/protobuf-java/2.6.1/protobuf-java-2.6.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d9521f2aecb909835746b7a5facf612af5e890e8">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/protobuf-java-2.6.1_5ddc03c901aa315f4c409612112905e7b6e8c3f0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/okhttp/2.6.0-leancloud/7d1a8dbbc128e91cf41ab6eafaa741ab2a6ff930/okhttp-2.6.0-leancloud.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7d1a8dbbc128e91cf41ab6eafaa741ab2a6ff930">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/okhttp-2.6.0-leancloud_1fea15ae156a423f1d1911c725d3bc8f1c5a052d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/tv.danmaku.ijk.media/ijkplayer-java/0.7.7/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0d27f9aaaec79556ffcfd7aa1595db769154a11c">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/tv.danmaku.ijk.media-ijkplayer-java-0.7.7_381aefc793b894b475d5ed8677220f97f9eae5ee.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.0/c4ba5371a29ac9b2ad6129b1d39ea38750043eff/gson-2.8.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c4ba5371a29ac9b2ad6129b1d39ea38750043eff">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/gson-2.8.0_0c90f40451ca2f294837862acfa04ed069076b8a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_cb42be6d199f9913a802c6a546393cf2f0471883.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_dc6f0f6cf307d5c59112a7ccdd79cdc46a15b7e7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-24.2.1_6b3d5977de4d89fb78c73ca075284ace847f18e9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-24.2.1_84d673e7b13aefe329fc2867cbb49a511f848cc1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-24.2.1_9b1c6aeea23e77420752e268745312106057b3f2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/okio/1.6.0-leancloud/7086c00a30a6de0ee3b963ec2c3702d37f1de11d/okio-1.6.0-leancloud.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7086c00a30a6de0ee3b963ec2c3702d37f1de11d">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/okio-1.6.0-leancloud_9cd27ab66d449ae2e7d575da2d7bf6d84ffc6477.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.lzy.net/okserver/1.1.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="379d026596d204cf421ba7b918e8195a659089ce">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.lzy.net-okserver-1.1.3_9d121d03926c18b3881ad46767a95c5ac961b78d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-24.2.1_d8ad4e964756e946bdedf0382512b6fdcbd582dd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.lzy.net/okgo/2.1.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="cb698597bf429f71793a87217f63a28cf7de0916">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.lzy.net-okgo-2.1.4_5a73d792eaa4ca9608504d190f413b01215c8c49.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_7c66a849a4a123c5476bbf227a987303122ba58f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/cn.bingoogolapple/bga-zxing/1.1.7/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5079e5fd491e9cda6597074c383db035e25e4696">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/cn.bingoogolapple-bga-zxing-1.1.7_7cc8e77b67ca9d3fb773f21272f26c589e3091a7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_e7ea35856d94c7e01c5a6cb92411c4315a4bf7a3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/internal_impl-24.2.1_a5b77cbe6cb1716f59cecb3900857cb73b5e0340.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.danikula/videocache/2.6.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="819e8849f12e422f2d9e9d8f2d8bc8f0d28a9d55">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.danikula-videocache-2.6.4_59310fe4eaa51fd847ed6dcc742e3c86eba81d87.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/cn.bingoogolapple/bga-qrcodecore/1.1.7/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="f577701fa1e05f14bde07bfbd522ced08fe1f7a0">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/cn.bingoogolapple-bga-qrcodecore-1.1.7_097626705970b05314cf54c6b3d4822db6761518.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-24.2.1_ac8b31ceb97228bac33c523d91c08c89ef3b7ed7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/资料/EtamCashier/app/build/intermediates/exploded-aar/com.google.android.exoplayer/exoplayer/r1.5.11/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="0a919fdfb7808ff27b33e6e84ec990478abc9cf1">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/com.google.android.exoplayer-exoplayer-r1.5.11_97a29ac4a526a23dc911a0c5fd45655816198df7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/admin/.gradle/caches/modules-2/files-2.1/cn.leancloud.android/avoscloud-sdk/v3.15.9/5b5dcbe06f4c84ce3cc47d4da5acc96b89ee4b5e/avoscloud-sdk-v3.15.9.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="24.0.3"
+        sha1="5b5dcbe06f4c84ce3cc47d4da5acc96b89ee4b5e">
+        <dex dex="/Users/admin/资料/EtamCashier/app/build/intermediates/pre-dexed/debug/avoscloud-sdk-v3.15.9_3fae790dbb1cabc4436d0ba37712eeab2da8f26b.jar" />
+    </item>
+
+</items>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/ll_qr_code"
+    android:background="#33cccccc"
+    android:visibility="gone"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="请选择支付方式"
+            android:textColor="@color/colorTextPink" />
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:id="@+id/iv_wechat"
+                android:layout_marginRight="25dp"
+                android:layout_height="100dp" />
+            <ImageView
+                android:layout_marginLeft="25dp"
+                android:id="@+id/iv_alipay"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:text="微信支付"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="45dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_marginLeft="45dp"
+                android:text="支付宝支付"
+                android:src="@mipmap/ic_launcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

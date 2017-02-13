@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="cashier_list_pink_line_height">0.5dp</dimen>
+    <dimen name="title_text_size">14sp</dimen>
+    <dimen name="content_text_size">10sp</dimen>
+    <dimen name="content_text_size_large">12sp</dimen>
+</resources>
