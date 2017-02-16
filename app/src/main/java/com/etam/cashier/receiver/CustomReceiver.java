@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import com.avos.avoscloud.LogUtil;
+import com.etam.cashier.Constant;
 import com.etam.cashier.activity.CashierActivity;
 
 import org.json.JSONException;
@@ -21,13 +22,11 @@ public class CustomReceiver extends BroadcastReceiver {
         LogUtil.log.d(TAG, "Get Broadcat");
         try {
             //获取消息内容
-            JSONObject json = new JSONObject(intent.getExtras().getString("com.avos.avoscloud.Data"));
-
+            JSONObject json = new JSONObject(intent.getExtras().getString(Constant.leanCloudData));
             Intent intentToCashierActivity = new Intent(context, CashierActivity.class);
             intentToCashierActivity.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intentToCashierActivity.putExtra("LeanCloudMessage",json.toString());
+            intentToCashierActivity.putExtra(Constant.leanCloudMessage, json.toString());
             context.startActivity(intentToCashierActivity);
-
         } catch (JSONException e) {
             Log.d(TAG, "JSONException: " + e.getMessage());
         }

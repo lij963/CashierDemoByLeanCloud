@@ -2,7 +2,6 @@ package com.etam.cashier.activity;
 
 import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.v4.view.PagerAdapter;
@@ -19,6 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.etam.cashier.BaseActivity;
+import com.etam.cashier.Constant;
 import com.etam.cashier.R;
 import com.etam.cashier.adapter.CashierPageAdapter;
 import com.etam.cashier.bean.LeanCloudMessage;
@@ -40,7 +40,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.bingoogolapple.qrcode.core.QRCodeView;
 import cn.bingoogolapple.qrcode.zxing.ZXingView;
 
@@ -50,9 +49,7 @@ import cn.bingoogolapple.qrcode.zxing.ZXingView;
  * Description:
  */
 
-public abstract class BaseCashierActivity extends BaseActivity  implements QRCodeView.Delegate{
-
-
+public abstract class BaseCashierActivity extends BaseActivity implements QRCodeView.Delegate {
     @BindView(R.id.vp)
     ViewPager vp;
     @BindView(R.id.player)
@@ -64,7 +61,7 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
     @BindView(R.id.ll_right)
     LinearLayout llRight;
     @BindView(R.id.zxingview)
-    ZXingView zXingView;
+    ZXingView scanCodeView;
     @BindView(R.id.iv_wechat)
     ImageView ivWechat;
     @BindView(R.id.iv_alipay)
@@ -87,79 +84,76 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
     TextView tvCashierNumber;
     @BindView(R.id.iv_qr_code)
     ImageView ivQrCode;
-//    private boolean isPlay;
-//    private boolean isPause;
     private int screenWidth;
     private int screenHeight;
-    int leftMenuWidth = 200;//左侧菜单栏的宽度，单位：dp
-
-    List<GSYVideoModel> urls;
     private Timer timer;
-    int viewPagerIndex = 0;
-    private boolean menuIsShown;
     protected LeanCloudMessage leanCloudMessage;
-    private boolean isPlaying;
+    int leftMenuWidth = 200;//左侧菜单栏的宽度，单位：dp，默认200.
+    int viewPagerIndex = 0;//vp轮播当前index。播放时间较长可能会是一个很大的值
+    private boolean menuIsShown;//左侧商品列表是否显示
+    private boolean isPlaying;//true播放器是否正在播放,false 播放器暂停或者播放器未加载完成
+    ArrayList<View> viewPagerLists; //轮播图数据源
+    List<GSYVideoModel> urls;//视频数据源
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_cashier);
-        ButterKnife.bind(this);
-        zXingView.setDelegate(this);
-        zXingView.changeToScanBarcodeStyle();
 
-        //初始化播放器
-        initPlayerView();
-        //初始化自动播放
-        initViewPager();
-        //获取屏幕宽高
-        loadScreenSize();
+        scanCodeView.setDelegate(this);//二维码控件初始化
+        scanCodeView.changeToScanBarcodeStyle();//设置样式为条码扫码
 
-        loadLeanCloudMsg(getIntent());
+        loadScreenSize();//获取屏幕宽高
+
+        initViewPager();//初始化自动播放
+
+        initPlayerView();//初始化播放器
+
+        loadLeanCloudMsg(getIntent());//加载推送过来的数据
 
     }
 
     @Override
-    protected void onNewIntent(Intent intent) {
+    protected void onNewIntent(Intent intent) {//在Activity已经显示的时候 再次调用startActivity到当前Activity 即会调用
         super.onNewIntent(intent);
-        loadLeanCloudMsg(intent);
+        loadLeanCloudMsg(intent);//加载推送过来的数据
     }
 
     private void loadLeanCloudMsg(Intent intent) {
-
-        String leanCloudMessageJson = intent.getStringExtra("LeanCloudMessage");
-        if (TextUtils.isEmpty(leanCloudMessageJson)) {
+        String leanCloudMessageJson = intent.getStringExtra(Constant.leanCloudMessage);
+        if (TextUtils.isEmpty(leanCloudMessageJson)) {//推送过来的数据为空
             return;
         }
         try {
             leanCloudMessage = new Gson().fromJson(leanCloudMessageJson, LeanCloudMessage.class);
-        } catch (JsonSyntaxException e) {
+        } catch (JsonSyntaxException e) {//推送过来的数据格式错误
             e.printStackTrace();
             return;
         }
-        //区分消息内容
-        switch (leanCloudMessage.getTitle()) {
-            case "showListOfGoods":
-                showMenuAndDetail();
-                break;
-            case "hideListOfGoods":
-                hideMenuAndDetail();
-                break;
-            case "showVipCode":
-                showVipCode();
-                break;
-            case "hideVipCode":
-                hideVipCode();
-                break;
-            case "showQrCode":
-                showQrCode();
-                break;
-            case "hideQrCode":
-                hideQrCode();
-                break;
-            case "other"://其他需求
-                break;
+        if (leanCloudMessage != null) {
+            //区分消息内容
+            switch (leanCloudMessage.getTitle()) {
+                case "showListOfGoods":
+                    showMenuAndDetail();
+                    break;
+                case "hideListOfGoods":
+                    hideMenuAndDetail();
+                    break;
+                case "showVipCode":
+                    showVipCode();
+                    break;
+                case "hideVipCode":
+                    hideVipCode();
+                    break;
+                case "showQrCode":
+                    showQrCode();
+                    break;
+                case "hideQrCode":
+                    hideQrCode();
+                    break;
+                case "other"://其他需求
+                    break;
+            }
         }
     }
 
@@ -179,7 +173,9 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
             return;
         } else {
             //将商品列表填充到界面上
-            if (leanCloudMessage.getAlert() != null && leanCloudMessage.getAlert().getGoodsList() != null && leanCloudMessage.getAlert().getGoodsList().size() > 0) {
+            if (leanCloudMessage.getAlert() != null
+                    && leanCloudMessage.getAlert().getGoodsList() != null
+                    && leanCloudMessage.getAlert().getGoodsList().size() > 0) {
                 tvOrderNumber.setText(leanCloudMessage.getAlert().getOrderNumber());
                 llGoods.removeAllViews();
                 for (int x = 0; x < leanCloudMessage.getAlert().getGoodsList().size(); x++) {
@@ -196,7 +192,6 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
                 tvCashierNumber.setText(leanCloudMessage.getAlert().getCashierNumber());
             }
         }
-
         //判断是否已经显示了，已经显示则不执行以下动画
         if (menuIsShown) {
             return;
@@ -211,7 +206,7 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
             public void onAnimationUpdate(ValueAnimator animation) {
                 // 3.为目标对象的属性设置计算好的属性值
                 int animatorValue = (int) animation.getAnimatedValue();
-                //将右侧缩放
+                //将右侧缩小
                 ViewGroup.LayoutParams llRightLayoutParams = llRight.getLayoutParams();
                 llRightLayoutParams.width = screenWidth - DensityUtil.dip2px(BaseCashierActivity.this, animatorValue);
                 llRight.setLayoutParams(llRightLayoutParams);
@@ -221,8 +216,8 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
                 rlRight.setLayoutParams(rlRightLayoutParams);
             }
         });
-        //4.设置动画的持续时间、是否重复及重复次数等属性
-        mAnimator.setDuration(1500);
+        //4.设置动画的持续时间
+        mAnimator.setDuration(Constant.animationDuration);
         //5.为ValueAnimator设置目标对象并开始执行动画
         mAnimator.setTarget(rlRight);
         mAnimator.start();
@@ -255,8 +250,8 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
                 rlRight.setLayoutParams(rlRightLayoutParams);
             }
         });
-        //4.设置动画的持续时间、是否重复及重复次数等属性
-        mAnimator.setDuration(1500);
+        //4.设置动画的持续时间
+        mAnimator.setDuration(Constant.animationDuration);
         //5.为ValueAnimator设置目标对象并开始执行动画
         mAnimator.setTarget(rlRight);
         mAnimator.start();
@@ -266,28 +261,22 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
      * 弹出VIP扫码
      */
     public void showVipCode() {
-
-
-
-
         //判断商品列表是否展开，未展开则打开
-        if (!menuIsShown) {
-            showMenuAndDetail();
-        }
+//        if (!menuIsShown) {
+//            showMenuAndDetail();
+//        }
         if (GSYVideoManager.instance().getMediaPlayer().isPlaying()) {
             mPlayer.onVideoPause();
             mPlayer.setVisibility(View.GONE);
         } else {
-
             cancelTimer();
         }
-        zXingView.setVisibility(View.VISIBLE);
+        scanCodeView.setVisibility(View.VISIBLE);
         llQrCode.setVisibility(View.GONE);
-        zXingView.startCamera();
-//        zXingView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);//前置摄像头
-
-        zXingView.showScanRect();
-        zXingView.startSpot();
+        scanCodeView.startCamera();
+//        scanCodeView.startCamera(Camera.CameraInfo.CAMERA_FACING_FRONT);//前置摄像头
+        scanCodeView.showScanRect();
+        scanCodeView.startSpot();
     }
 
     /**
@@ -300,8 +289,8 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
         } else {
             startTimer();
         }
-        zXingView.stopCamera();
-        zXingView.setVisibility(View.GONE);
+        scanCodeView.stopCamera();
+        scanCodeView.setVisibility(View.GONE);
         llQrCode.setVisibility(View.GONE);
     }
 
@@ -314,6 +303,7 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
             //获取不到商品数据则停止
             return;
         } else {
+            //加载二维码图片
             if (leanCloudMessage.getAlert() != null
                     && leanCloudMessage.getAlert().getQrCodeInfo() != null
                     ) {
@@ -329,15 +319,12 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
                             .placeholder(R.mipmap.default_qr_code)
                             .into(ivWechat);
                 }
-
             }
-
         }
-
         //判断商品列表是否展开，未展开则打开
-        if (!menuIsShown) {
-            showMenuAndDetail();
-        }
+//        if (!menuIsShown) {
+//            showMenuAndDetail();
+//        }
         if (GSYVideoManager.instance().getMediaPlayer().isPlaying()) {
             mPlayer.onVideoPause();
             mPlayer.setVisibility(View.GONE);
@@ -345,7 +332,7 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
             cancelTimer();
         }
         llQrCode.setVisibility(View.VISIBLE);
-        zXingView.setVisibility(View.GONE);
+        scanCodeView.setVisibility(View.GONE);
     }
 
     /**
@@ -359,7 +346,7 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
             startTimer();
         }
         llQrCode.setVisibility(View.GONE);
-        zXingView.setVisibility(View.GONE);
+        scanCodeView.setVisibility(View.GONE);
     }
 
     /**
@@ -380,17 +367,16 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
                     @Override
                     public void run() {
                         viewPagerIndex++;
-                        if (viewPagerIndex % 4 == 0) {
+                        if (viewPagerIndex % viewPagerLists.size() == 0) {
                             cancelTimer();
                             startPlayer();
                         }
                         vp.setCurrentItem(viewPagerIndex);
-
                     }
                 });
             }
         };
-        timer.schedule(task, 2000, 2000);
+        timer.schedule(task, Constant.viewPagerChangeDuration, Constant.viewPagerChangeDuration);
     }
 
     private void cancelTimer() {
@@ -399,7 +385,6 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
         }
     }
 
-
     /**
      * 重新开始播放视频
      */
@@ -407,7 +392,6 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
         mPlayer.setVisibility(View.VISIBLE);
         mPlayer.setUp(urls, false, 0, "");
         mPlayer.startPlayLogic();
-
     }
 
     private void initPlayerView() {
@@ -423,9 +407,7 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
             @Override
             public void onPrepared(String url, Object... objects) {
                 super.onPrepared(url, objects);
-                //开始播放了才能旋转和全屏
-//                isPlay = true;
-                isPlaying=true;
+                isPlaying = true;
                 Log.d("MainActivityPlayer", "onPrepared");
             }
 
@@ -433,7 +415,7 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
             public void onAutoComplete(String url, Object... objects) {
                 super.onAutoComplete(url, objects);
                 Log.d("MainActivityPlayer", "onAutoComplete");
-                isPlaying=false;
+                isPlaying = false;
                 startViewPager();
             }
 
@@ -459,10 +441,9 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
         return R.mipmap.ic_launcher;
     }
 
-    protected abstract List<GSYVideoModel> getVideoUrls();
-
     private void initViewPager() {
-        PagerAdapter pagerAdapter = new CashierPageAdapter(generateViewPagerData());
+        viewPagerLists = generateViewPagerData();
+        PagerAdapter pagerAdapter = new CashierPageAdapter(viewPagerLists);
         vp.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -471,11 +452,6 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
         });
         vp.setAdapter(pagerAdapter);
     }
-
-    /**
-     * @return viewpager需要显示的数据
-     */
-    protected abstract ArrayList<View> generateViewPagerData();
 
     @Override
     public void onBackPressed() {
@@ -486,43 +462,24 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
 //        super.onBackPressed();
     }
 
-
     @Override
     protected void onPause() {
         super.onPause();
-//        isPause = true;
+        mPlayer.onVideoPause();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-//        isPause = false;
+        mPlayer.onVideoResume();
     }
 
     @Override
     protected void onDestroy() {
         GSYVideoPlayer.releaseAllVideos();
         GSYPreViewManager.instance().releaseMediaPlayer();
-        zXingView.onDestroy();
+        scanCodeView.onDestroy();
         super.onDestroy();
-    }
-
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        super.onConfigurationChanged(newConfig);
-//        //如果旋转了就全屏
-//        if (isPlay && !isPause) {
-//            if (newConfig.orientation == ActivityInfo.SCREEN_ORIENTATION_USER) {
-//                if (!mPlayer.isIfCurrentIsFullscreen()) {
-//                    mPlayer.startWindowFullscreen(this, true, true);
-//                }
-//            } else {
-//                //新版本isIfCurrentIsFullscreen的标志位内部提前设置了，所以不会和手动点击冲突
-//                if (mPlayer.isIfCurrentIsFullscreen()) {
-//                    StandardGSYVideoPlayer.backFromWindowFull(this);
-//                }
-//            }
-//        }
     }
 
     /**
@@ -531,7 +488,6 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
     protected void resolveNormalVideoUI() {
         //增加title
         mPlayer.getTitleTextView().setVisibility(View.GONE);
-        mPlayer.getTitleTextView().setText("测试视频");
         mPlayer.getBackButton().setVisibility(View.GONE);
         mPlayer.getFullscreenButton().setVisibility(View.GONE);
         mPlayer.setIsTouchWiget(false);//是否可以滑动进度 声音 亮度
@@ -545,18 +501,27 @@ public abstract class BaseCashierActivity extends BaseActivity  implements QRCod
     @Override
     public void onScanQRCodeSuccess(String result) {
         vibrate();
-        Log.d("MainActivityPlayer", "onScanQRCodeSuccess,result="+result+" End");
-//        zXingView.startSpot();
+        Log.d("MainActivityPlayer", "onScanQRCodeSuccess,result=" + result + " End");
         hideVipCode();
     }
 
     @Override
     public void onScanQRCodeOpenCameraError() {
         Log.d("MainActivityPlayer", "MainActivityPlayer");
-
     }
+
     private void vibrate() {
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         vibrator.vibrate(200);
     }
+
+    /**
+     * @return viewpager需要显示的数据
+     */
+    protected abstract ArrayList<View> generateViewPagerData();
+
+    /**
+     * @return 视频数据源
+     */
+    protected abstract List<GSYVideoModel> getVideoUrls();
 }

@@ -12,46 +12,42 @@ import java.util.ArrayList;
  * Description:
  */
 
-public class CashierPageAdapter extends PagerAdapter{
+public class CashierPageAdapter extends PagerAdapter {
     ArrayList<View> viewList;
+
     public CashierPageAdapter(ArrayList<View> viewList) {
-        this.viewList=viewList;
+        this.viewList = viewList;
     }
 
     @Override
-        public boolean isViewFromObject(View arg0, Object arg1) {
+    public boolean isViewFromObject(View arg0, Object arg1) {
+        return arg0 == arg1;
+    }
 
-            return arg0 == arg1;
-        }
+    @Override
+    public int getCount() {
+        return Integer.MAX_VALUE;
+    }
 
-        @Override
-        public int getCount() {
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView(viewList.get(position % viewList.size()));
+    }
 
-            return Integer.MAX_VALUE;
-        }
+    @Override
+    public int getItemPosition(Object object) {
+        return super.getItemPosition(object);
+    }
 
-        @Override
-        public void destroyItem(ViewGroup container, int position, Object object) {
-            container.removeView(viewList.get(position % viewList.size()));
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return "";
+    }
 
-        }
-
-        @Override
-        public int getItemPosition(Object object) {
-
-            return super.getItemPosition(object);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-
-            return "";
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup container, int position) {
-            container.addView(viewList.get(position % viewList.size()));
-            return viewList.get(position % viewList.size());
-        }
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        container.addView(viewList.get(position % viewList.size()));
+        return viewList.get(position % viewList.size());
+    }
 
 }

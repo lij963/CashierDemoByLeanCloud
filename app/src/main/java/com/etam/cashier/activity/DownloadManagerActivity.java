@@ -3,17 +3,16 @@ package com.etam.cashier.activity;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.format.Formatter;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.etam.cashier.BaseActivity;
+import com.etam.cashier.Constant;
 import com.etam.cashier.R;
 import com.etam.cashier.model.VideoModel;
 import com.etam.cashier.view.NumberProgressBar;
@@ -51,7 +50,7 @@ public class DownloadManagerActivity extends BaseActivity implements View.OnClic
         listView.setAdapter(adapter);
 
         downloadManager.getThreadPool().getExecutor().addOnAllTaskEndListener(this);
-        if (getIntent().getBooleanExtra("needUpdate",false)) {
+        if (getIntent().getBooleanExtra(Constant.needUpdate, false)) {
             startUpdateVideo();
         }
     }
@@ -64,10 +63,8 @@ public class DownloadManagerActivity extends BaseActivity implements View.OnClic
                 return;
             }
         }
-//        Toast.makeText(DownloadManagerActivity.this, "所有下载任务完成", Toast.LENGTH_SHORT).show();
         onBackPressed();
     }
-
 
     @Override
     protected void onDestroy() {
@@ -84,25 +81,7 @@ public class DownloadManagerActivity extends BaseActivity implements View.OnClic
     }
 
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.removeAll:
-                downloadManager.removeAllTask();
-                adapter.notifyDataSetChanged();  //移除的时候需要调用
-                break;
-            case R.id.pauseAll:
-                downloadManager.pauseAllTask();
-                break;
-            case R.id.stopAll:
-                downloadManager.stopAllTask();
-                break;
-            case R.id.startAll:
-                downloadManager.startAllTask();
-                break;
-            case R.id.start:
-                startUpdateVideo();
-
-                break;
-        }
+        startUpdateVideo();//开始下载
     }
 
     private void startUpdateVideo() {
@@ -151,8 +130,6 @@ public class DownloadManagerActivity extends BaseActivity implements View.OnClic
             } else {
                 holder.name.setText(downloadInfo.getFileName());
             }
-            holder.download.setOnClickListener(holder);
-            holder.remove.setOnClickListener(holder);
             holder.restart.setOnClickListener(holder);
 
             DownloadListener downloadListener = new MyDownloadListener();
@@ -164,25 +141,19 @@ public class DownloadManagerActivity extends BaseActivity implements View.OnClic
 
     private class ViewHolder implements View.OnClickListener {
         private DownloadInfo downloadInfo;
-        private ImageView icon;
         private TextView name;
         private TextView downloadSize;
         private TextView tvProgress;
         private TextView netSpeed;
         private NumberProgressBar pbProgress;
-        private Button download;
-        private Button remove;
         private Button restart;
 
         public ViewHolder(View convertView) {
-            icon = (ImageView) convertView.findViewById(R.id.icon);
             name = (TextView) convertView.findViewById(R.id.name);
             downloadSize = (TextView) convertView.findViewById(R.id.downloadSize);
             tvProgress = (TextView) convertView.findViewById(R.id.tvProgress);
             netSpeed = (TextView) convertView.findViewById(R.id.netSpeed);
             pbProgress = (NumberProgressBar) convertView.findViewById(R.id.pbProgress);
-            download = (Button) convertView.findViewById(R.id.start);
-            remove = (Button) convertView.findViewById(R.id.remove);
             restart = (Button) convertView.findViewById(R.id.restart);
         }
 
@@ -199,58 +170,28 @@ public class DownloadManagerActivity extends BaseActivity implements View.OnClic
             downloadSize.setText(downloadLength + "/" + totalLength);
             if (downloadInfo.getState() == DownloadManager.NONE) {
                 netSpeed.setText("停止");
-                download.setText("下载");
             } else if (downloadInfo.getState() == DownloadManager.PAUSE) {
                 netSpeed.setText("暂停中");
-                download.setText("继续");
             } else if (downloadInfo.getState() == DownloadManager.ERROR) {
                 netSpeed.setText("下载出错");
-                download.setText("出错");
             } else if (downloadInfo.getState() == DownloadManager.WAITING) {
                 netSpeed.setText("等待中");
-                download.setText("等待");
             } else if (downloadInfo.getState() == DownloadManager.FINISH) {
-//                if (ApkUtils.isAvailable(DownloadManagerActivity.this, new File(downloadInfo.getTargetPath()))) {
-//                    download.setText("卸载");
-//                } else {
-//                    download.setText("安装");
-//                }
                 netSpeed.setText("下载完成");
                 restart.setVisibility(View.INVISIBLE);
             } else if (downloadInfo.getState() == DownloadManager.DOWNLOADING) {
                 String networkSpeed = Formatter.formatFileSize(DownloadManagerActivity.this, downloadInfo.getNetworkSpeed());
                 netSpeed.setText(networkSpeed + "/s");
-                download.setText("暂停");
             }
             tvProgress.setText((Math.round(downloadInfo.getProgress() * 10000) * 1.0f / 100) + "%");
             pbProgress.setMax((int) downloadInfo.getTotalLength());
             pbProgress.setProgress((int) downloadInfo.getDownloadLength());
             pbProgress.setProgressTextVisibility(NumberProgressBar.ProgressTextVisibility.Invisible);
-            Log.d(" getDownloadLength", downloadInfo.getDownloadLength() + "");
         }
 
         @Override
         public void onClick(View v) {
-            if (v.getId() == download.getId()) {
-                switch (downloadInfo.getState()) {
-                    case DownloadManager.PAUSE:
-                    case DownloadManager.NONE:
-                    case DownloadManager.ERROR:
-                        downloadManager.addTask(downloadInfo.getUrl(), downloadInfo.getRequest(), downloadInfo.getListener());
-                        break;
-                    case DownloadManager.DOWNLOADING:
-                        downloadManager.pauseTask(downloadInfo.getUrl());
-                        break;
-                    case DownloadManager.FINISH:
-                        break;
-                }
-                refresh();
-            } else if (v.getId() == remove.getId()) {
-                downloadManager.removeTask(downloadInfo.getUrl());
-                adapter.notifyDataSetChanged();
-            } else if (v.getId() == restart.getId()) {
-                downloadManager.restartTask(downloadInfo.getUrl());
-            }
+            downloadManager.restartTask(downloadInfo.getUrl());
         }
     }
 

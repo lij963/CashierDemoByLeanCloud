@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.etam.cashier.BaseActivity;
+import com.etam.cashier.Constant;
 import com.etam.cashier.R;
 
 import java.io.File;
@@ -29,24 +30,20 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
-        downloadVideo();
-
-        showUserId();
-
+        downloadVideo();//判断视频是否已经加载，并下载视频，目前的逻辑是只要有一个不存在会全部重新下载
+        showUserId();//显示本地存储的userId。
     }
 
     private void showUserId() {
-
         SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
-        String userID = sharedPreferences.getString("userId", "未设置");
+        String userID = sharedPreferences.getString(Constant.userId, "未设置");
         tvUserId.setText(userID);
     }
 
     private void downloadVideo() {
         if (!isVideoLoadSuccess()) {
             Intent intent = new Intent(this, DownloadManagerActivity.class);
-            intent.putExtra("needUpdate", true);
+            intent.putExtra(Constant.needUpdate, true);
             startActivity(intent);
         }
     }
@@ -63,7 +60,6 @@ public class MainActivity extends BaseActivity {
                 break;
             }
         }
-
         return isFilesAllExist;
     }
 

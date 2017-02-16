@@ -8,13 +8,7 @@
               android:paddingBottom="10dp"
               android:paddingTop="10dp">
 
-    <ImageView
-        android:id="@+id/icon"
-        android:visibility="gone"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:padding="5dp"
-        android:src="@mipmap/ic_launcher"/>
+
 
     <LinearLayout
         android:layout_width="0dp"
@@ -28,10 +22,10 @@
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:singleLine="true"
             android:text="视频名字"
             android:textColor="#000"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:maxLines="1" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -78,27 +72,7 @@
             app:progress_unreached_color="#CCCCCC"/>
     </LinearLayout>
 
-    <Button
-        android:id="@+id/start"
-        android:layout_width="40dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="#E30"
-        android:padding="5dp"
-        android:visibility="gone"
-        android:text="下载"
-        android:textColor="#FFF"/>
 
-    <Button
-        android:id="@+id/remove"
-        android:layout_width="40dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="#3E0"
-        android:padding="5dp"
-        android:visibility="gone"
-        android:text="删除"
-        android:textColor="#FFF"/>
 
     <Button
         android:id="@+id/restart"

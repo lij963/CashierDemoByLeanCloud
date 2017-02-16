@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.avos.avoscloud.AVInstallation;
+import com.etam.cashier.Constant;
 import com.etam.cashier.R;
 
 import butterknife.BindView;
@@ -31,11 +32,11 @@ public class UserIdActivity extends AppCompatActivity {
     @OnClick(R.id.btn_submit_user_id)
     public void onClick() {
         if (!TextUtils.isEmpty(etUserId.getText().toString().trim())) {
-            AVInstallation.getCurrentInstallation().put("userId",etUserId.getText().toString().trim() );
+            AVInstallation.getCurrentInstallation().put(Constant.userId,etUserId.getText().toString().trim() );
             AVInstallation.getCurrentInstallation().saveInBackground();
 
             SharedPreferences sharedPreferences= PreferenceManager.getDefaultSharedPreferences(this);
-            sharedPreferences.edit().putString("userId",etUserId.getText().toString().trim()).apply();
+            sharedPreferences.edit().putString(Constant.userId,etUserId.getText().toString().trim()).apply();
             setResult(RESULT_OK);
             onBackPressed();
         }else {

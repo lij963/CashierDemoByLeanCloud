@@ -22,7 +22,7 @@ public class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-
+        //多任务下载管理初始化
         OkGo.init(this);
         // leancloud初始化应用信息
         AVOSCloud.initialize(this, "o724pIp4h0Wm93MNkB40RC70-gzGzoHsz",
@@ -33,18 +33,12 @@ public class BaseApplication extends Application {
         AVOSCloud.setDebugLogEnabled(true);
         // 订阅频道，当该频道消息到来的时候，打开对应的 Activity
         PushService.setDefaultPushCallback(this, MainActivity.class);
-//		PushService.subscribe(this, "", MainActivity.class);
-//		PushService.subscribe(this, "private", Callback1.class);
-//		PushService.subscribe(this, "protected", Callback2.class);
-// 保存 installation 到服务器
-
+        //保存 installation 到服务器
         AVInstallation.getCurrentInstallation().saveInBackground(new SaveCallback() {
             @Override
             public void done(AVException e) {
-
                 AVInstallation.getCurrentInstallation().saveInBackground();
             }
         });
-
     }
 }
