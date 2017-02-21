@@ -43,8 +43,8 @@
 #### 其中title的值表示需要执行的操作，暂定有6个操作如下：
 1. showListOfGoods  --展开商品列表
 2. hideListOfGoods  --关闭商品列表
-3. showVipCode      --显示VIP条形码
-4. hideVipCode      --隐藏VIP条形码
+3. showVipCode      --开启扫码功能，识别VIP条码
+4. hideVipCode      --关闭扫码功能
 5. showQrCode       --显示支付的二维码
 6. hideQrCode       --隐藏支付的二维码
 
